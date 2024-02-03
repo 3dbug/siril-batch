@@ -1,0 +1,6 @@
+requires 1.2.1
+setext fit
+load $FILE.$EXT
+resample 0.5
+save $FILE_downscale.$EXT
+close
