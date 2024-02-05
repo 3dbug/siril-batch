@@ -1,7 +1,9 @@
 # siril-batch
 
-Runs scripts in Siril on selected files or scans a directory recursively.
-Scripts can be editedt and saved, the scripts will be stored in the
+Runs Siril to execute a script on selected files. 
+The files can be selected manually or by a recursive scan.
+
+Scripts can be edited and saved, the scripts will be stored in the
 same directory where the pythonscript was found.
 The processed files will be either stored in the same directory where the source image has been
 found or alternatively in an optional output directory.
@@ -9,6 +11,9 @@ found or alternatively in an optional output directory.
 ## Installation
 - Install python https://www.python.org/downloads/
 - Install Tkinter ``pip install tk``
+### Start
+- ``python sbatch.py``
+
 ## Variables
 - $FILE The fullpath as selected in 
 - $EXT The files extension (.fit)

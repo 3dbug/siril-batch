@@ -131,13 +131,17 @@ class SirilBatch:
 
     def launch_external_program(self, file_path, cmd):
         filename, ext = os.path.splitext(file_path)
+        src_path = os.path.split(filename)[0]
+        out_dir = self.out_dir.get("1.0", tk.END).strip()
+        # check for alternative output directory
+        if os.path.isdir( out_dir):
+            src_path = out_dir
+            filename = os.path.join(src_path, filename)
         fmt_file = os.path.normpath(filename).replace('\\\\', '\\')
         cmd = cmd.replace("$FILE", fmt_file)
         cmd = cmd.replace("$EXT", ext[1:])
-        print(cmd)
         process = subprocess.Popen(SIRIL, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout, stderr = process.communicate(cmd.encode())
-
         self.output.insert(tk.END, stdout.decode(get_encoding()))
 
 
